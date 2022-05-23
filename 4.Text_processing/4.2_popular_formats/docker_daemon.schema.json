@@ -1,0 +1,37 @@
+{
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["graph", "live-restore", "iptables"],
+    "properties": {
+        "graph": {"type": "string"},
+        "live-restore": {"type": "boolean"},
+        "log-driver": {"type": "string"},
+        "log-opts": {
+            "type": "object",
+            "properties": {
+                "max-file": {"type": "string"},
+                "max-size": {"type": "string"}
+            }
+        },
+        "storage-driver": {"type": "string"},
+        "iptables": {"type": "boolean"},
+        "insecure-registries": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "dns": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "dns-search": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        }
+    }
+}

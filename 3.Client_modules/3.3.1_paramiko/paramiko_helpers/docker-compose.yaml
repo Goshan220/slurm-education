@@ -1,0 +1,22 @@
+version: "3.6"
+services:
+  openssh-server:
+    build:
+      dockerfile: Dockerfile-sshserver
+      context: .
+    container_name: openssh-server
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - PASSWORD_ACCESS=true
+      - USER_PASSWORD=q1w2e3
+      - USER_NAME=service_user
+    ports:
+      - 2222:2222
+    networks:
+      - python-for-ops
+
+networks:
+  python-for-ops:
+    driver: bridge

@@ -1,0 +1,9 @@
+FROM ghcr.io/linuxserver/openssh-server
+EXPOSE 2222 2222
+RUN apk update && apk add postgresql-dev gcc python3-dev musl-dev
+RUN apk add python3
+RUN apk add py3-pip
+RUN pip3 install psycopg2-binary
+RUN pip3 install Faker
+COPY monitoring_module.py /usr/bin/monitoring_module
+RUN chmod +x /usr/bin/monitoring_module

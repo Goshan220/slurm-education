@@ -1,0 +1,9 @@
+[Core]
+Name = TaskCreator
+Module = task_creator
+
+[Documentation]
+Description = This is a simple plugin example to create tasks from message.
+
+[Python]
+Version = 3

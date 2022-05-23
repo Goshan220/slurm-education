@@ -1,0 +1,45 @@
+version: "3.6"
+services:
+  openssh-server:
+    build:
+      dockerfile: Dockerfile-sshserver
+      context: .
+    container_name: openssh-server
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - PASSWORD_ACCESS=true
+      - USER_PASSWORD=q1w2e3
+      - USER_NAME=service_user
+    ports:
+      - 2222:2222
+    networks:
+      - python-for-ops
+
+  postgres:
+    container_name: postgres
+    build:
+      dockerfile: Dockerfile-postgres
+      context: .
+    restart: always
+
+    environment:
+      POSTGRES_PASSWORD: q1w2e3
+    ports:
+      - 5432:5432
+    networks:
+      - python-for-ops
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - python-for-ops
+
+networks:
+  python-for-ops:
+    driver: bridge

@@ -1,0 +1,6 @@
+[Core]
+Name = MonitoringPlugin
+Module = monitoring_plugin
+
+[Python]
+Version = 3

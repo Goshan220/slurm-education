@@ -1,0 +1,8 @@
+apiVersion: example.org/v1
+kind: Testenv
+metadata:
+  name: nginx-testenv
+spec:
+  type: apache
+  hostUser: "011274"
+  namespace: testapachens

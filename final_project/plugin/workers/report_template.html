@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Report {{generation_time}}</title>
+</head>
+<body>
+<h2>Hosts status report. Generation date: {{generation_time}}</h2>
+{% for user in users %}
+<h3>{{user.username}}</h3>
+<table border="1">
+    <tr>
+        <th>Hostname</th>
+        <th>Status</th>
+        <th>Last modification time</th>
+        <th>Comment</th>
+        <th>Labels</th>
+    </tr>
+    {% for host in user.hosts %}
+    <tr>
+        <td>{{host.hostname}}</td>
+        <td>{{host.status}}</td>
+        <td>{{host.last_modify_time}}</td>
+        <td>{{host.comment}}</td>
+        <td>{{host.labels}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endfor %}
+</body>
+</html>

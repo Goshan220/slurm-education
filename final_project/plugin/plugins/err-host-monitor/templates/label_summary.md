@@ -1,0 +1,1 @@
+Summary for label: {{ label }} Total hosts: {{ total }} Enabled: {{ enabled }} Percent: {{ percent }}

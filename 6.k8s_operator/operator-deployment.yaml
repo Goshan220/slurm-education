@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testenv-operator
+spec:
+  selector:
+    matchLabels:
+      app: testenv-operator
+  template:
+    metadata:
+      labels:
+        app: testenv-operator
+    spec:
+      serviceAccountName: testenv-k8soperator
+      containers:
+      - image: coveredjaguar/testenvoperator:latest
+        name: testenv-operator
+        imagePullPolicy: Always
